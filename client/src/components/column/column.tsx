@@ -12,6 +12,9 @@ import { Title } from "../primitives/title";
 import { Footer } from "./components/footer";
 import { Container } from "./styled/container";
 import { Header } from "./styled/header";
+import { ChangeEvent, useContext } from "react";
+import { SocketContext } from "../../context/socket";
+import { CardEvent, ListEvent } from "../../common/enums/enums";
 
 type Props = {
   listId: string;
@@ -21,6 +24,20 @@ type Props = {
 };
 
 export const Column = ({ listId, listName, cards, index }: Props) => {
+  const socket = useContext(SocketContext);
+
+  const changeListTitle = (title: string): void => {
+    socket.emit(ListEvent.RENAME, { id: listId, title });
+  };
+
+  const deleteList = (): void => {
+    socket.emit(ListEvent.DELETE, listId);
+  };
+
+  const createCardItem = (name: string): void  => {
+    socket.emit(CardEvent.CREATE, { listId, cardName: name });
+  };
+
   return (
     <Draggable draggableId={listId} index={index}>
       {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
@@ -37,16 +54,16 @@ export const Column = ({ listId, listName, cards, index }: Props) => {
             <Title
               aria-label={listName}
               title={listName}
-              onChange={() => {}}
+              onChange={changeListTitle}
               fontSize="large"
               width={200}
               isBold
             />
             <Splitter />
-            <DeleteButton color="#FFF0" onClick={() => {}} />
+            <DeleteButton color="#FFF0" onClick={deleteList} />
           </Header>
           <CardsList listId={listId} listType="CARD" cards={cards} />
-          <Footer onCreateCard={() => {}} />
+          <Footer onCreateCard={createCardItem} />
         </Container>
       )}
     </Draggable>

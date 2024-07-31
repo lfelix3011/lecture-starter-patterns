@@ -1,19 +1,19 @@
-import { randomUUID } from 'crypto';
+import { Clonable } from './clonable';
 
-class Card {
-  public id: string;
-
+class Card extends Clonable<Card> {
   public name: string;
-
   public description: string;
 
-  public createdAt: Date;
-
   public constructor(name: string, description: string) {
+    super();
     this.name = name;
     this.description = description;
-    this.createdAt = new Date();
-    this.id = randomUUID();
+  }
+
+  // PATTERN:Prototype
+  public clone(): Card {
+    const card = new Card(this.name, this.description);
+    return card;
   }
 }
 
