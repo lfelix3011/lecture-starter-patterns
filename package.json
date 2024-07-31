@@ -7,7 +7,7 @@
     "lint:fix": "npm run lint -- --fix",
     "format:check": "npx prettier --check \"**/*.{ts,mjs,css,md,html}\"",
     "format:fix": "npx prettier --write \"**/*.{ts,mjs,css,md,html}\"",
-    "start:client": "npm start -w client",
+    "start:client": "npm start -w client -- --host",
     "start:server": "npm start -w server",
     "start": "concurrently \"npm run start:client\" \"npm run start:server\""
   },
