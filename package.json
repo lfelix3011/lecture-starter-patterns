@@ -9,7 +9,7 @@
     "format:fix": "npx prettier --write \"**/*.{ts,mjs,css,md,html}\"",
     "start:client": "npm start -w client",
     "start:server": "npm start -w server",
-    "start": "npm start -w server"
+    "start": "concurrently \"npm run start:client\" \"npm run start:server\""
   },
   "author": "Vitalii Yarmus",
   "license": "MIT",
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
+    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
