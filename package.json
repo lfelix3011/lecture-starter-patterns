@@ -6,7 +6,10 @@
     "lint": "eslint --ext .{js,jsx,ts,tsx} .",
     "lint:fix": "npm run lint -- --fix",
     "format:check": "npx prettier --check \"**/*.{ts,mjs,css,md,html}\"",
-    "format:fix": "npx prettier --write \"**/*.{ts,mjs,css,md,html}\""
+    "format:fix": "npx prettier --write \"**/*.{ts,mjs,css,md,html}\"",
+    "start:client": "npm start -w client",
+    "start:server": "npm start -w server",
+    "start": "npm start -w server"
   },
   "author": "Vitalii Yarmus",
   "license": "MIT",
