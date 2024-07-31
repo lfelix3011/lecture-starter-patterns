@@ -1,0 +1,4 @@
+const UNDO_ACTION_KEY = 'Z';
+const REDO_ACTION_KEY = 'Y';
+
+export { UNDO_ACTION_KEY, REDO_ACTION_KEY };

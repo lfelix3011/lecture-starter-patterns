@@ -1,7 +1,8 @@
-import { Card } from "../data/models/card";
-import { List } from "../data/models/list";
+import { IReorderService } from '../common/interfaces/interfaces';
+import { Card } from '../data/models/card';
+import { List } from '../data/models/list';
 
-class ReorderService {
+class ReorderService implements IReorderService {
   public reorder<T>(items: T[], startIndex: number, endIndex: number): T[] {
     const card = items[startIndex];
     const listWithRemoved = this.remove(items, startIndex);
@@ -23,8 +24,7 @@ class ReorderService {
     sourceListId: string;
     destinationListId: string;
   }): List[] {
-    const target: Card = lists.find((list) => list.id === sourceListId)
-      ?.cards?.[sourceIndex];
+    const target: Card = lists.find((list) => list.id === sourceListId)?.cards?.[sourceIndex];
 
     if (!target) {
       return lists;
