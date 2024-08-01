@@ -1,3 +1,3 @@
-const SOCKET_URL = 'lecture-starter-patterns-production-cd46.up.railway.app';
+const SOCKET_URL = 'http://localhost:3005';
 
 export { SOCKET_URL };

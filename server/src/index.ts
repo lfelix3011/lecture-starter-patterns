@@ -10,7 +10,7 @@ import { FileLogger } from './common/logger/file-logger';
 import { logger } from './common/logger/logger';
 import { ReorderServiceProxy } from './proxy/proxy';
 
-const PORT = process.env.PORT || 3005;
+const PORT = 3005;
 
 const httpServer = createServer();
 const io = new Server(httpServer, {
