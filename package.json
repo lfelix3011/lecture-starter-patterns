@@ -9,7 +9,8 @@
     "format:fix": "npx prettier --write \"**/*.{ts,mjs,css,md,html}\"",
     "start:client": "npm start -w client -- --host",
     "start:server": "npm start -w server",
-    "start": "concurrently \"npm run start:client\" \"npm run start:server\""
+    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
+    "build": "tsc"
   },
   "author": "Vitalii Yarmus",
   "license": "MIT",
